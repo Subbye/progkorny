@@ -1,7 +1,8 @@
 Feladat:
-Neptun tanulmányi rendszer pénzügyekkel kapcsolatos részeinek megírása/szimulálása
-java program segítségével. A programban megírt funkciók:
-- bankszámlák kezelése (hozzáadás, törlés)
-- tétel kiírása/törlése/teljesítése (ha lehetséges a törlése)
-- tételek listázása (teljesített/aktív/összes)
+Neptun tanulmÃ¡nyi rendszer pÃ©nzÃ¼gyekkel kapcsolatos rÃ©szeinek megÃ­rÃ¡sa/szimulÃ¡lÃ¡sa
+java program segÃ­tsÃ©gÃ©vel. A programban megÃ­rt funkcik:
+- bankszÃ¡mlÃ¡k kezelÃ©se (hozzÃ¡adÃ¡s, tÃ¶rlÃ©s)
+- tÃ©tel kiÃ­rÃ¡sa/tÃ¶rlÃ©se/teljesÃ­tÃ©se (ha lehetsÃ©ges a tÃ¶rlÃ©se)
+- tÃ©telek listÃ¡zÃ¡sa (teljesÃ­tett/aktÃ­v/Ã¶sszes)
+- kifizetÃ©sek kezelÃ©se (visszautalÃ¡s, Ã¶sztÃ¶ndÃ­j, egyszeri kifizetÃ©sek)
 
