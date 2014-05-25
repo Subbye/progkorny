@@ -3,4 +3,43 @@
   <groupId>progkorny</groupId>
   <artifactId>beadando</artifactId>
   <version>1.0</version>
+  <developers>
+    <developer>
+      <id>Subbye</id>
+      <name>Subbye</name>
+      <email>subbye666@hotmail.com</email>
+      <timezone>1</timezone>
+    </developer>
+  </developers>
+  <description>Neptun pénzügyekkel kapcsolatos dolgok java nyelven</description>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+	</properties>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-javadoc-plugin</artifactId>
+  			<version>2.9.1</version>
+  		</plugin>
+  	</plugins>
+  </build>
+  <reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+ 				<artifactId>maven-javadoc-plugin</artifactId>
+ 				<version>2.9.1</version>
+ 			</plugin>
+    	</plugins>
+    </reporting>
 </project>
