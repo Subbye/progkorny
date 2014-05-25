@@ -8,12 +8,12 @@ public class szamlak {
 	/** A lista amiben számlákat tároljuk, elemei {@link szamla} tipusúak*/
 	List<szamla> lista = new LinkedList<szamla>();
 	
-	/**Számlaszám hozzáadása a listához. */
+	/**Számlaszám hozzáadása a listához. Paraméterként egy {@link szamla} típust kap meg, amit hozzáfűz a listához.*/
 	void add(szamla s){
 		lista.add(s);
 	}
 	
-	/**Számlaszám törlése a listából. */
+	/**Számlaszám törlése a listából. Paraméterként egy {@link szamla} típust kap meg. */
 	void remove (szamla s){
 		lista.remove(s);
 	}

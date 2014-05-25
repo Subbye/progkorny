@@ -1,16 +1,18 @@
 package neptun;
 
+import java.util.logging.Logger;
+
 /** A bankszámlaszám tárolására létrehozott osztály */
 public class szamla {
 	/** A bankszámla számlaszáma*/
-	String szamlaszam;
+	long szamlaszam;
 	/** A számlaszámon szereplő összeg*/	
 	int osszeg;
 	/** A tulajdonos neptun azonosítója*/
 	String tulajdonos_azonositoja;
+	private final static Logger LOGGER = Logger.getLogger("Szamlalogger");
 	
-	public szamla(String szamlaszam, int osszeg, String tulajdonos_azonositoja) {
-		super();
+	public szamla(long szamlaszam, int osszeg, String tulajdonos_azonositoja) {
 		this.szamlaszam = szamlaszam;
 		this.osszeg = osszeg;
 		this.tulajdonos_azonositoja = tulajdonos_azonositoja;
@@ -22,14 +24,17 @@ public class szamla {
 				+ ", tulajdonos_azonositoja=" + tulajdonos_azonositoja + "]";
 	}
 	
-	/** a gyüjtőszámláról való visszautalás kezelése*/
+	/** A gyüjtőszámláról való visszautalás kezelése.
+	 * @param Paraméterként "vissza" egy {@code int} típust kap meg, amely az az összeg amit vissza szeretnénk utalni.
+	 * @return Visszatérési értéke {@code boolean} a sikeresség függvényében.
+	 * */
 	boolean visszautal(int vissza){
 		if(osszeg>vissza){
 			osszeg-=vissza;
-			System.out.println("Sikerült a visszautalás a gyüjtőszámláról");
+			LOGGER.info("Sikerült a visszautalás a gyüjtőszámláról");
 			return true;
 		}
-		System.out.println("A visszautalni kívánt összeg nem haladhatja meg a számlán levő összeget.");
+		LOGGER.warning("A visszautalni kívánt összeg nem haladhatja meg a számlán levő összeget.");
 		return false;
 	}
 }

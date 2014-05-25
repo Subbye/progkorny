@@ -1,5 +1,7 @@
 package neptun;
 
+import java.util.logging.Logger;
+
 /**A különböző be és kifizetési tételek letárolására szolgál.*/
 public class tetel {
 	String leiras;
@@ -7,6 +9,7 @@ public class tetel {
 	String allapot;
 	boolean torolheto;
 	boolean be_vagy_ki;
+	private final static Logger LOGGER = Logger.getLogger("Tetellogger");
 	
 	public tetel(String leiras, int osszeg, String allapot, boolean torolheto,
 			boolean be_vagy_ki) {
@@ -25,19 +28,29 @@ public class tetel {
 				+ be_vagy_ki + "]";
 	} 
 	
-	/**Tétel teljesítése egy számláról*/
+	/**Tétel teljesítése egy számláról.
+	 * @param Paraméterként egy {@link szamla} típust kap, erről a számláról vonja le az összeget.
+	 * @return Visszatérési értéke {@code boolean} a sikeresség függvényében.
+	 * */
 	boolean befizet(szamla sz){
+		if(allapot.equals("Teljesített")){
+			LOGGER.warning("A tétel már teljesítve van");
+			return false;
+		}
 		if(osszeg<sz.osszeg){
 			sz.osszeg-=osszeg;
 			allapot="Teljesített";
-			System.out.println("A tétel befizetése sikeres");
+			LOGGER.info("A tétel befizetése sikeres");
 			return true;
 		}
-		System.out.println("Nincs elegendő összeg a számlán");
+		LOGGER.warning("Nincs elegendő összeg a számlán");
 		return false;
 	}
 	
-	/**Tétel teljesítése több számláról.*/
+	/**Tétel teljesítése több számláról.
+	 * @param Paraméterként egy {@link szamlak} típust kap meg, ami {@link szamla} típusú elemeket tartalmazó lista.
+	 * @return Visszatérésként {@code boolean} értéked ad a sikeresség függvényében.
+	 * */
 	boolean befizet(szamlak sz){
 		int temp=0;
 		for(szamla szam: sz.lista){
@@ -47,7 +60,7 @@ public class tetel {
 			for(szamla szam: sz.lista){
 				if(szam.osszeg>osszeg){
 					szam.osszeg-=osszeg;
-					System.out.println("A tétel bifizetése sikeres!");
+					LOGGER.info("A tétel bifizetése sikeres!");
 					return true;
 				}else{
 					osszeg-=szam.osszeg;
@@ -55,7 +68,7 @@ public class tetel {
 				}
 			}
 		}
-		System.out.println("Nincs elegendő összeg a számlákon!");
+		LOGGER.warning("Nincs elegendő összeg a számlákon!");
 		return false;
 	}
 }
