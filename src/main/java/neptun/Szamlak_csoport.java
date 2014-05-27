@@ -2,7 +2,9 @@ package neptun;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** A bankszámlaszámok egy listába való csoportosítását szolgálja. */
 public class Szamlak_csoport {
@@ -12,8 +14,8 @@ public class Szamlak_csoport {
 	 * Logger létrehozása amiben visszajelzünk, hogy sikeresen végrehajtódtak-e
 	 * a műveletek, vagy sem.
 	 */
-	private final static Logger LOGGER = Logger
-			.getLogger("Szamlak_csoportlogger");
+	//private final static Logger LOGGER = Logger.getLogger("Szamlak_csoportlogger");
+	private static Logger	LOGGER = LoggerFactory.getLogger(Szamlak_csoport.class);
 
 	/**
 	 * Számlaszám hozzáadása a listához.
@@ -30,7 +32,7 @@ public class Szamlak_csoport {
 		}
 		for (Szamla_egy sz : lista) {
 			if (sz.szamlaszam==s.szamlaszam) {
-				LOGGER.warning("Ez a számlaszám már szerepel a listában.");
+				LOGGER.warn("Ez a számlaszám már szerepel a listában.");
 				return false;
 			} else if (sz.tulajdonos_azonositoja
 					.equals(s.tulajdonos_azonositoja)) {
@@ -39,7 +41,7 @@ public class Szamlak_csoport {
 				return true;
 			}
 		}
-		LOGGER.warning("Csak azonos tulajdonosú számla adható hozzá.");
+		LOGGER.warn("Csak azonos tulajdonosú számla adható hozzá.");
 		return false;
 	}
 
@@ -60,7 +62,7 @@ public class Szamlak_csoport {
 				return true;
 			}
 		}
-		LOGGER.warning("Nincs ilyen számla a listában!");
+		LOGGER.warn("Nincs ilyen számla a listában!");
 		return false;
 	}
 }

@@ -2,7 +2,9 @@ package neptun;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**Az osztály egy lista segítségével kezeli a hallgato számláit.*/
 public class Tetelek_csoport {
@@ -13,7 +15,8 @@ public class Tetelek_csoport {
 	/**
 	 * Létrehozzuk egy logger állományt, amiben a listázások és az esetlegesen felmerülő hibát jelzését tároljuk.
 	 */
-	private final static Logger LOGGER = Logger.getLogger("Teteleklogger");
+	//private final static Logger LOGGER = Logger.getLogger("Teteleklogger");
+	private static Logger	LOGGER = LoggerFactory.getLogger(Szamlak_csoport.class);
 
 	/**
 	 * Számlaszám hozzáadása a listához. 
@@ -34,7 +37,7 @@ public class Tetelek_csoport {
 			LOGGER.info("Sikeresen törölve!");
 			return true;
 	}
-		LOGGER.warning("A megadott tétel nem törölhető!");
+		LOGGER.warn("A megadott tétel nem törölhető!");
 	return false;
 	}
 	

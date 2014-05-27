@@ -1,6 +1,8 @@
 package neptun;
 
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A bankszámlaszám tárolására létrehozott osztály.
@@ -17,7 +19,8 @@ public class Szamla_egy {
 	/**
 	 * Létrehozom a Logger fájlt.
 	 */
-	private final static Logger LOGGER = Logger.getLogger("Szamlalogger");
+	//private final static Logger LOGGER = Logger.getLogger("Szamlalogger");
+	private static Logger	LOGGER = LoggerFactory.getLogger(Szamla_egy.class);
 	
 	/**
 	 * A számla létrehozásához szükséges konstruktor.
@@ -48,7 +51,7 @@ public class Szamla_egy {
 			LOGGER.info("Sikerült a visszautalás a gyüjtőszámláról");
 			return true;
 		}
-		LOGGER.warning("A visszautalni kívánt összeg nem haladhatja meg a számlán levő összeget.");
+		LOGGER.warn("A visszautalni kívánt összeg nem haladhatja meg a számlán levő összeget.");
 		return false;
 	}
 }

@@ -1,6 +1,8 @@
 package neptun;
 
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**A különböző be és kifizetési tételek letárolására szolgál.*/
 public class Tetel_egy {
@@ -27,7 +29,9 @@ public class Tetel_egy {
 	/**
 	 * A Loggert példányosítása, ebbe kerülnek a program futása közben kiírandó szövegek.
 	 */
-	private final static Logger LOGGER = Logger.getLogger("Tetellogger");
+	//private final static Logger LOGGER = Logger.getLogger("Tetellogger");
+	private static Logger	LOGGER = LoggerFactory.getLogger(Szamlak_csoport.class);
+	
 	/**
 	 * Egy ki- vagy befizetéshez tartozó konstruktor.
 	 * @param leiras	(A tétel leírása pl. késedlmi díj, nem teljesített kredit)
@@ -61,7 +65,7 @@ public class Tetel_egy {
 	 */
 	public boolean befizet(Szamla_egy sz){
 		if(allapot.equals("Teljesített")){
-			LOGGER.warning("A tétel már teljesítve van");
+			LOGGER.warn("A tétel már teljesítve van");
 			return false;
 		}
 		if(osszeg<sz.osszeg){
@@ -70,7 +74,7 @@ public class Tetel_egy {
 			LOGGER.info("A tétel befizetése sikeres");
 			return true;
 		}
-		LOGGER.warning("Nincs elegendő összeg a számlán");
+		LOGGER.warn("Nincs elegendő összeg a számlán");
 		return false;
 	}
 	
@@ -83,7 +87,7 @@ public class Tetel_egy {
 	public boolean befizet(Szamlak_csoport sz){
 		int temp=0;
 		if(allapot.equals("Teljesített")){
-			LOGGER.warning("A tétel már teljesítve van");
+			LOGGER.warn("A tétel már teljesítve van");
 			return false;
 		}
 		for(Szamla_egy szam: sz.lista){
@@ -101,7 +105,7 @@ public class Tetel_egy {
 				}
 			}
 		}
-		LOGGER.warning("Nincs elegendő összeg a számlákon!");
+		LOGGER.warn("Nincs elegendő összeg a számlákon!");
 		return false;
 	}
 }
