@@ -2,7 +2,7 @@ package diak;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class hallgatotest {
+public class Hallgatotest {
 
 	private void assertHallgato(String expectedAzonosito, String expectedVezeteknev,
 			String expectedKeresztnev, int expectedSzuletesi_ev,

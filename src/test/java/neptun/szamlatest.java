@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 
-public class szamlatest {
+public class Szamlatest {
 
 	private void assertSzamla(long expectedSzamlaszam, int expectedOsszeg, String expectedTulajdonos_azonositoja, Szamla_egy actual) {
 		assertEquals(expectedSzamlaszam, actual.szamlaszam);
@@ -21,5 +21,6 @@ public class szamlatest {
 	@Test
 	public void testVisszautal(){
 		assertTrue(new Szamla_egy(12312312, 98765, "ASDF123").visszautal(5894));
+		assertFalse(new Szamla_egy(156412312, 78765, "ASDF123").visszautal(160894));
 	}
 }

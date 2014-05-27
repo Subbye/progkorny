@@ -31,6 +31,7 @@ public class Tetelek_csoport {
 	public boolean remove (Tetel_egy t){
 		if (t.torolheto==true){
 			tetelek.remove(t);
+			LOGGER.info("Sikeresen törölve!");
 			return true;
 	}
 		LOGGER.warning("A megadott tétel nem törölhető!");

@@ -82,6 +82,10 @@ public class Tetel_egy {
 	 */
 	public boolean befizet(Szamlak_csoport sz){
 		int temp=0;
+		if(allapot.equals("Teljesített")){
+			LOGGER.warning("A tétel már teljesítve van");
+			return false;
+		}
 		for(Szamla_egy szam: sz.lista){
 			temp+=szam.osszeg;
 		}
