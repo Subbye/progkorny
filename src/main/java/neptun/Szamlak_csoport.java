@@ -10,17 +10,17 @@ public class Szamlak_csoport {
 	
 	/**
 	 * Számlaszám hozzáadása a listához.
-	 * @param s {@link Szamla_egy} típusú.
+	 * @param s {@link neptun.Szamla_egy Szamla_egy} típusú.
 	 */
-	void add(Szamla_egy s){
+	public void add(Szamla_egy s){
 		lista.add(s);
 	}
 	
 	/**
 	 *Számlaszám törlése a listából.  
-	 * @param s {@link Szamla_egy} típusú.
+	 * @param s {@link neptun.Szamla_egy Szamla_egy} típusú.
 	 */
-	void remove (Szamla_egy s){
+	public void remove (Szamla_egy s){
 		lista.remove(s);
 	}
 }

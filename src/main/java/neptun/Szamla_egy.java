@@ -37,11 +37,12 @@ public class Szamla_egy {
 				+ ", tulajdonos_azonositoja=" + tulajdonos_azonositoja + "]";
 	}
 	
-	/** A gyüjtőszámláról való visszautalás kezelése.
-	 * @param vissza az az összeg amit vissza szeretnénk utalni.
-	 * @return Visszatérési értéke {@code boolean} a sikeresség függvényében.
-	 * */
-	boolean visszautal(int vissza){
+	/**
+	 * A gyüjtőszámláról való visszautalás kezelése.
+	 * @param vissza {@code integer} típusú. Az az összeg amit vissza szeretnénk utalni.
+	 * @return {@code boolean} típus a sikeresség függvényében.
+	 */
+	public boolean visszautal(int vissza){
 		if(osszeg>vissza){
 			osszeg-=vissza;
 			LOGGER.info("Sikerült a visszautalás a gyüjtőszámláról");

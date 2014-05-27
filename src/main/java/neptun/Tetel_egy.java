@@ -4,14 +4,32 @@ import java.util.logging.Logger;
 
 /**A különböző be és kifizetési tételek letárolására szolgál.*/
 public class Tetel_egy {
+	/**
+	 * A be- vagy kifizetési kötelezettség megnevezése. pl. késedelmi díj, nem teljesített kredit.
+	 */
 	String leiras;
+	/**
+	 * A be- vagy kifizetési kötelezettség összege.
+	 */
 	int osszeg;
+	/**
+	 * A be- vagy kifizetési kötelezettség állapota. pl. teljesített, aktív.
+	 */
 	String allapot;
+	/**
+	 * A be- vagy kifizetési kötelezettség törölhető-e, vagyis felhasználó hozta létra, vagy admin.
+	 */
 	boolean torolheto;
+	/**
+	 * A be- vagy kifizetési kötelezettés iránya, vagyis be- vagy kifizetés. Ha be akkor false értéket kap, ha ki akkor true értéket kap.
+	 */
 	boolean be_vagy_ki;
+	/**
+	 * A Loggert példányosítása, ebbe kerülnek a program futása közben kiírandó szövegek.
+	 */
 	private final static Logger LOGGER = Logger.getLogger("Tetellogger");
 	/**
-	 * Construktor
+	 * Egy ki- vagy befizetéshez tartozó konstruktor.
 	 * @param leiras	(A tétel leírása pl. késedlmi díj, nem teljesített kredit)
 	 * @param osszeg	(A teljesítés/kifizetés összege)
 	 * @param allapot	(A tétel állapota pl. Aktív, Teljesített)
@@ -35,11 +53,13 @@ public class Tetel_egy {
 				+ be_vagy_ki + "]";
 	} 
 	
-	/**Tétel teljesítése egy számláról.
-	 * @param Paraméterként egy {@link Szamla_egy} típust kap, erről a számláról vonja le az összeget.
-	 * @return Visszatérési értéke {@code boolean} a sikeresség függvényében.
-	 * */
-	boolean befizet(Szamla_egy sz){
+	/**
+	 * Tétel teljesítése egy számláról.
+	 * @param sz {@link neptun.Szamla_egy Szamla_egy} típusú, erről a számláról vonja majd le az összeget.
+	 * @return {@code boolean} értékkel tér vissza a sikeresség függvényében
+	 * @since version 1.00
+	 */
+	public boolean befizet(Szamla_egy sz){
 		if(allapot.equals("Teljesített")){
 			LOGGER.warning("A tétel már teljesítve van");
 			return false;
@@ -54,11 +74,13 @@ public class Tetel_egy {
 		return false;
 	}
 	
-	/**Tétel teljesítése több számláról.
-	 * @param Paraméterként egy {@link Szamlak} típust kap meg, ami {@link Szamla_egy} típusú elemeket tartalmazó lista.
-	 * @return Visszatérésként {@code boolean} értéked ad a sikeresség függvényében.
-	 * */
-	boolean befizet(Szamlak_csoport sz){
+	/**
+	 * Tétel teljesítése több számláról.
+	 * @param sz {@link neptun.Szamlak_csoport Szamlak_csoport} típust kap meg, ami {@link neptun.Szamla_egy Szamla_egy} típusú elemeket tartalmazó lista.
+	 * @return {@code boolean} értékkel tér vissza a sikeresség függvényében
+	 * @since version 1.00
+	 */
+	public boolean befizet(Szamlak_csoport sz){
 		int temp=0;
 		for(Szamla_egy szam: sz.lista){
 			temp+=szam.osszeg;

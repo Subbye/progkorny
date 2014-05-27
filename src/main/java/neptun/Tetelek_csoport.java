@@ -6,19 +6,29 @@ import java.util.logging.Logger;
 
 /**Az osztály egy lista segítségével kezeli a hallgato számláit.*/
 public class Tetelek_csoport {
+	/**
+	 * Egy lista, amely tartalmazza az összes tételt, ennek segítségével lehet törölni és hozzáadni új tételt.
+	 */
 	List<Tetel_egy> tetelek = new LinkedList<Tetel_egy>();
+	/**
+	 * Létrehozzuk egy logger állományt, amiben a listázások és az esetlegesen felmerülő hibát jelzését tároljuk.
+	 */
 	private final static Logger LOGGER = Logger.getLogger("Teteleklogger");
 
-	/**Számlaszám hozzáadása a listához. Paraméterként egy {@link Tetel_egy} elemet kap meg.*/
-	void add(Tetel_egy t){
+	/**
+	 * Számlaszám hozzáadása a listához. 
+	 * @param t {@link neptun.Tetel_egy Tetel_egy} elemet kap meg.
+	 */
+	public void add(Tetel_egy t){
 		tetelek.add(t);
 	}
 	
-	/**Számlaszám törlése a listából.
-	 * @param Paraméterként egy {@link Tetel_egy} elemet kap meg.
-	 * @return Visszatérési értéke {@code boolean} a sikeresség függvényében.
-	 * */
-	boolean remove (Tetel_egy t){
+	/**
+	 * Számlaszám törlése a listából.
+	 * @param t {@link neptun.Tetel_egy Tetel_egy} típusú elemet kap.
+	 * @return {@code boolean} értékkel tér vissza a sikeresség függvényében.
+	 */
+	public boolean remove (Tetel_egy t){
 		if (t.torolheto==true){
 			tetelek.remove(t);
 			return true;
@@ -27,19 +37,20 @@ public class Tetelek_csoport {
 	return false;
 	}
 	
-	/**Az össze tétel kilistázására szolgál.
-	 * @param Nincs paramétere
-	 * @return Nincs visszatérési értéke.*/
-	void kiir(){
+	/**
+	 * Az összes tétel kilistázása.
+	 */
+	public void kiir(){
 		for (Tetel_egy t : tetelek) {
 			LOGGER.info(t.toString());
 		}
 	}
 	
-	/**A csak ki- vagy befizetések listázása.
-	 * @param Paraméterkén egy {@code boolean} értéket kap meg, amivel állítható hogy csak a ki vagy be fizetéseket listázza ki.
-	 * @return nincs visszatérési értéke. */
-	void kiir (boolean be_vagy_ki){
+	/**
+	 * A csak ki- vagy befizetések listázása.
+	 * @param be_vagy_ki {@code boolean} értéket kap meg, amivel állítható, hogy csak a be- vagy kifizetéseket listázza ki. Ha false akkor csak a befizetések, ha true akkor a kifizetéseket listázza ki.
+	 */
+	public void kiir (boolean be_vagy_ki){
 		for (Tetel_egy t : tetelek) {
 			if(t.be_vagy_ki==be_vagy_ki){
 				LOGGER.info(t.toString());
