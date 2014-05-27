@@ -6,7 +6,7 @@ public class hallgatotest {
 
 	private void assertHallgato(String expectedAzonosito, String expectedVezeteknev,
 			String expectedKeresztnev, int expectedSzuletesi_ev,
-			int expectedSzuletesi_ho, int expectedSzuletesi_nap, hallgato actual) {
+			int expectedSzuletesi_ho, int expectedSzuletesi_nap, Hallgato actual) {
 		assertEquals(expectedAzonosito, actual.azonosito);
 		assertEquals(expectedVezeteknev, actual.vezeteknev);
 		assertEquals(expectedKeresztnev, actual.keresztnev);
@@ -17,7 +17,7 @@ public class hallgatotest {
 	
 	@Test
 	public void testHallgato(){
-		assertHallgato("ASD23D","Kovács", "Tamás", 1988, 02, 04, new hallgato("ASD23D", "Kovács", "Tamás", 1988, 02, 04));
-		assertHallgato("ASD453","Tóth", "Tímea", 1985, 9, 20, new hallgato("ASD453", "Tóth", "Tímea", 1985, 9, 20));
+		assertHallgato("ASD23D","Kovács", "Tamás", 1988, 02, 04, new Hallgato("ASD23D", "Kovács", "Tamás", 1988, 02, 04));
+		assertHallgato("ASD453","Tóth", "Tímea", 1985, 9, 20, new Hallgato("ASD453", "Tóth", "Tímea", 1985, 9, 20));
 	}
 }

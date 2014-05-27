@@ -5,7 +5,7 @@ package diak;
  * @author Subbye
  *
  */
-public class hallgato {
+public class Hallgato {
 	/**
 	 * Neptun azonosító.
 	 */
@@ -39,7 +39,7 @@ public class hallgato {
  * @param szuletesi_ho	(Hallgató születési hónapja)
  * @param szuletesi_nap	(Hallgató születési napja)
  */
-	public hallgato(String azonosito, String vezeteknev, String keresztnev,
+	public Hallgato(String azonosito, String vezeteknev, String keresztnev,
 			int szuletesi_ev, int szuletesi_ho, int szuletesi_nap) {
 		super();
 		this.azonosito = azonosito;

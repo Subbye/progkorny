@@ -22,6 +22,6 @@ public class teteltest {
 	
 	@Test
 	public void testBefizet(){
-		assertTrue(new tetel("Nem teljesített kredit", 7500, "Aktív", false, false).befizet(new szamla(123134, 25000, "A34SDF")));
+		assertTrue(new tetel("Nem teljesített kredit", 7500, "Aktív", false, false).befizet(new Szamla(123134, 25000, "A34SDF")));
 	}
 }

@@ -7,7 +7,7 @@ import java.util.logging.Logger;
  * @author Subbye
  *
  */
-public class szamla {
+public class Szamla {
 	/** A bankszámla számlaszáma.*/
 	long szamlaszam;
 	/** A számlaszámon szereplő összeg.*/	
@@ -25,7 +25,7 @@ public class szamla {
 	 * @param osszeg	(A számlán szereplő összeg.)
 	 * @param tulajdonos_azonositoja (A hallgató neptun azonosítója.)
 	 */
-	public szamla(long szamlaszam, int osszeg, String tulajdonos_azonositoja) {
+	public Szamla(long szamlaszam, int osszeg, String tulajdonos_azonositoja) {
 		this.szamlaszam = szamlaszam;
 		this.osszeg = osszeg;
 		this.tulajdonos_azonositoja = tulajdonos_azonositoja;

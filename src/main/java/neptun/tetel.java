@@ -36,10 +36,10 @@ public class tetel {
 	} 
 	
 	/**Tétel teljesítése egy számláról.
-	 * @param Paraméterként egy {@link szamla} típust kap, erről a számláról vonja le az összeget.
+	 * @param Paraméterként egy {@link Szamla} típust kap, erről a számláról vonja le az összeget.
 	 * @return Visszatérési értéke {@code boolean} a sikeresség függvényében.
 	 * */
-	boolean befizet(szamla sz){
+	boolean befizet(Szamla sz){
 		if(allapot.equals("Teljesített")){
 			LOGGER.warning("A tétel már teljesítve van");
 			return false;
@@ -55,16 +55,16 @@ public class tetel {
 	}
 	
 	/**Tétel teljesítése több számláról.
-	 * @param Paraméterként egy {@link szamlak} típust kap meg, ami {@link szamla} típusú elemeket tartalmazó lista.
+	 * @param Paraméterként egy {@link szamlak} típust kap meg, ami {@link Szamla} típusú elemeket tartalmazó lista.
 	 * @return Visszatérésként {@code boolean} értéked ad a sikeresség függvényében.
 	 * */
 	boolean befizet(szamlak sz){
 		int temp=0;
-		for(szamla szam: sz.lista){
+		for(Szamla szam: sz.lista){
 			temp+=szam.osszeg;
 		}
 		if(temp>osszeg){
-			for(szamla szam: sz.lista){
+			for(Szamla szam: sz.lista){
 				if(szam.osszeg>osszeg){
 					szam.osszeg-=osszeg;
 					LOGGER.info("A tétel bifizetése sikeres!");
