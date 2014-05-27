@@ -3,7 +3,7 @@ package neptun;
 import java.util.logging.Logger;
 
 /**A különböző be és kifizetési tételek letárolására szolgál.*/
-public class tetel {
+public class Tetel_egy {
 	String leiras;
 	int osszeg;
 	String allapot;
@@ -18,7 +18,7 @@ public class tetel {
 	 * @param torolheto	(Törölhető-e, azaz felhasználó hozta létre, vagy adminként lett kiírva)
 	 * @param be_vagy_ki	(Be vagy kifizetés az adott tétel. 0 esetén be, 1 esetén kifizetés.)
 	 */
-	public tetel(String leiras, int osszeg, String allapot, boolean torolheto,
+	public Tetel_egy(String leiras, int osszeg, String allapot, boolean torolheto,
 			boolean be_vagy_ki) {
 		super();
 		this.leiras = leiras;
@@ -36,10 +36,10 @@ public class tetel {
 	} 
 	
 	/**Tétel teljesítése egy számláról.
-	 * @param Paraméterként egy {@link Szamla} típust kap, erről a számláról vonja le az összeget.
+	 * @param Paraméterként egy {@link Szamla_egy} típust kap, erről a számláról vonja le az összeget.
 	 * @return Visszatérési értéke {@code boolean} a sikeresség függvényében.
 	 * */
-	boolean befizet(Szamla sz){
+	boolean befizet(Szamla_egy sz){
 		if(allapot.equals("Teljesített")){
 			LOGGER.warning("A tétel már teljesítve van");
 			return false;
@@ -55,16 +55,16 @@ public class tetel {
 	}
 	
 	/**Tétel teljesítése több számláról.
-	 * @param Paraméterként egy {@link szamlak} típust kap meg, ami {@link Szamla} típusú elemeket tartalmazó lista.
+	 * @param Paraméterként egy {@link Szamlak} típust kap meg, ami {@link Szamla_egy} típusú elemeket tartalmazó lista.
 	 * @return Visszatérésként {@code boolean} értéked ad a sikeresség függvényében.
 	 * */
-	boolean befizet(szamlak sz){
+	boolean befizet(Szamlak_csoport sz){
 		int temp=0;
-		for(Szamla szam: sz.lista){
+		for(Szamla_egy szam: sz.lista){
 			temp+=szam.osszeg;
 		}
 		if(temp>osszeg){
-			for(Szamla szam: sz.lista){
+			for(Szamla_egy szam: sz.lista){
 				if(szam.osszeg>osszeg){
 					szam.osszeg-=osszeg;
 					LOGGER.info("A tétel bifizetése sikeres!");
