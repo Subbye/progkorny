@@ -1,14 +1,44 @@
 package diak;
 
-/**A hallgató letárolására használt osztály */
+/**
+ * A hallgató letárolására használt osztály.
+ * @author Subbye
+ *
+ */
 public class hallgato {
+	/**
+	 * Neptun azonosító.
+	 */
 	String azonosito;
+	/**
+	 * Hallgató Vezetékneve.
+	 */
 	String vezeteknev;
+	/**
+	 * Hallgató Keresztneve.
+	 */
 	String keresztnev;
+	/**
+	 * Hallgató születési éve.
+	 */
 	int szuletesi_ev;
+	/**
+	 * Hallgató születési hónapja.
+	 */
 	int szuletesi_ho;
+	/**
+	 * Hallgató születési napja.
+	 */
 	int szuletesi_nap;
-	
+/**
+ * 
+ * @param azonosito (Neptun azonosító)
+ * @param vezeteknev (Hallgató vezetékneve)
+ * @param keresztnev (Hallgató keresztneve)
+ * @param szuletesi_ev	(Hallgató születési éve)
+ * @param szuletesi_ho	(Hallgató születési hónapja)
+ * @param szuletesi_nap	(Hallgató születési napja)
+ */
 	public hallgato(String azonosito, String vezeteknev, String keresztnev,
 			int szuletesi_ev, int szuletesi_ho, int szuletesi_nap) {
 		super();

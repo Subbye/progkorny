@@ -10,7 +10,14 @@ public class tetel {
 	boolean torolheto;
 	boolean be_vagy_ki;
 	private final static Logger LOGGER = Logger.getLogger("Tetellogger");
-	
+	/**
+	 * Construktor
+	 * @param leiras	(A tétel leírása pl. késedlmi díj, nem teljesített kredit)
+	 * @param osszeg	(A teljesítés/kifizetés összege)
+	 * @param allapot	(A tétel állapota pl. Aktív, Teljesített)
+	 * @param torolheto	(Törölhető-e, azaz felhasználó hozta létre, vagy adminként lett kiírva)
+	 * @param be_vagy_ki	(Be vagy kifizetés az adott tétel. 0 esetén be, 1 esetén kifizetés.)
+	 */
 	public tetel(String leiras, int osszeg, String allapot, boolean torolheto,
 			boolean be_vagy_ki) {
 		super();

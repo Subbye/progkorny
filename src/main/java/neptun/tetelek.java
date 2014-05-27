@@ -23,7 +23,7 @@ public class tetelek {
 			tetelek.remove(t);
 			return true;
 	}
-	System.out.println("A megadott tétel nem törölhető!");
+		LOGGER.warning("A megadott tétel nem törölhető!");
 	return false;
 	}
 	
